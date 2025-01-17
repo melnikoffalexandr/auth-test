@@ -39,7 +39,7 @@ function Auth() {
         const { status, data } = await db.get(`/users?email=${email}`);
         const user = data[0];
 
-        if (status === 200 && user.password === password) {
+        if (status === 200 && user?.password === password) {
           db.patch(`users/${user.id}`, { auth: true });
           navigate(`dashboard?userId=${user.id}`);
         }
