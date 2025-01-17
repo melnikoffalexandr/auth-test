@@ -37,11 +37,10 @@ function Auth() {
     if (formType === 'login') {
       try {
         const { status, data } = await db.get(`/users?email=${email}`);
-        const user = data[0];
 
-        if (status === 200 && user?.password === password) {
-          db.patch(`users/${user.id}`, { auth: true });
-          navigate(`dashboard?userId=${user.id}`);
+        if (status === 200 && data[0] && data[0]?.password === password) {
+          db.patch(`users/${data[0]?.id}`, { auth: true });
+          navigate(`dashboard?userId=${data[0]?.id}`);
         }
 
         showMessage({
