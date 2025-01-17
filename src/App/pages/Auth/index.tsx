@@ -116,6 +116,7 @@ function Auth() {
           variant="text"
           onClick={() => {
             setFormType('registration');
+            form.resetFields();
           }}>
           Регистрация
         </Button>
