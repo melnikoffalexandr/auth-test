@@ -39,26 +39,15 @@ function Auth() {
         const { status, data } = await db.get(`/users?email=${email}`);
         const user = data[0];
 
-        console.log('user: ', user);
-
         if (status === 200 && user?.password === password) {
           db.patch(`users/${user.id}`, { auth: true });
           navigate(`dashboard?userId=${user.id}`);
         }
 
-        if (status === 200 && !user) {
-          showMessage({
-            type: 'error',
-            content: `Пользователь не найден`,
-          });
-        }
-
-        if (status === 200 && user && user.password !== password) {
-          showMessage({
-            type: 'error',
-            content: `E-mail или пароль указаны не верно, попробуйте ещё раз`,
-          });
-        }
+        showMessage({
+          type: 'error',
+          content: `E-mail или пароль указаны не верно, попробуйте ещё раз`,
+        });
       } catch (e) {
         console.error(e);
       }
