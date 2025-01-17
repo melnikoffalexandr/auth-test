@@ -1,7 +1,7 @@
 {
   "name": "auth-test-work",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "concurrently \"vite\" \"json-server db.json\"",
@@ -12,7 +12,6 @@
   "dependencies": {
     "antd": "5.23.1",
     "axios": "^1.7.9",
-    "classnames": "^2.5.1",
     "concurrently": "9.1.2",
     "json-server": "1.0.0-beta.3",
     "react": "18.3.1",

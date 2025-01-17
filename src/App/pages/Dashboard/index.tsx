@@ -7,7 +7,7 @@ import { UserOutlined, SettingOutlined, LoginOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom';
 import { db, FieldType, User } from '../../../api/api.ts';
 
-const DropdownSettings = ({ user }: { user: User }) => {
+const UserMenu = ({ user }: { user: User }) => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm();
@@ -138,7 +138,7 @@ function Dashboard() {
             ),
           },
         ]}
-        tabBarExtraContent={<DropdownSettings user={user!} />}
+        tabBarExtraContent={<UserMenu user={user!} />}
       />
     </div>
   );
