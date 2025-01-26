@@ -6,11 +6,3 @@
     width: 50%;
     height: 50%;
 }
-
-.dropdown {
-    cursor: pointer;
-}
-
-.userMenu {
-    pointer-events: none;
-}

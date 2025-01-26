@@ -7,9 +7,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Auth() {
   const navigate = useNavigate();
-  const [form] = Form.useForm();
-  const [formType, setFormType] = useState<'registration' | 'login'>('login');
   const [messageApi, contextHolder] = message.useMessage();
+
+  const [formType, setFormType] = useState<'registration' | 'login'>('login');
+  const [form] = Form.useForm();
+  const { resetFields } = form;
 
   const showMessage = (params: { type: 'success' | 'error'; content: string }) => {
     const { type, content } = params;
@@ -27,7 +29,7 @@ function Auth() {
             type: 'success',
             content: `${name} регистрация прошла успешно, теперь вы можете авторизоваться`,
           });
-          form.resetFields();
+          resetFields();
         }
       } catch (e) {
         console.error(e);
@@ -115,7 +117,7 @@ function Auth() {
           variant="text"
           onClick={() => {
             setFormType('registration');
-            form.resetFields();
+            resetFields();
           }}>
           Регистрация
         </Button>

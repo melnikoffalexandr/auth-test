@@ -1,0 +1,7 @@
+.userMenu {
+    pointer-events: none;
+}
+
+.dropdown {
+    cursor: pointer;
+}

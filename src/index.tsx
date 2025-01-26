@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import Auth from './App/pages/Auth';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './App/pages/Dashboard';
